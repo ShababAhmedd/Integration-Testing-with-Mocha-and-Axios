@@ -1,6 +1,6 @@
 # Integration Testing with Mocha and Axios
 
-Integration test suite for the **Dmoney** API, built with Mocha, Chai, and Axios. It replays a full end-to-end mobile-financial-services flow — admin login, user/agent/merchant creation and activation, OTP verification, deposits, send money, cash-out, and payments — directly against a running Dmoney backend, based on a Postman collection ([collection/findme.json](collection/findme.json)).
+Integration test suite for the **Dmoney** API, built with Mocha, Chai, and Axios. It replays a full end-to-end financial-services flow — admin login, user/agent/merchant creation and activation, OTP verification, deposits, send money, cash-out, and payments — directly against a running Dmoney backend, based on a Postman collection ([collection/findme.json](collection/findme.json)).
 
 ## Technologies Used
 
