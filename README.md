@@ -34,3 +34,13 @@ npm test
 ```
 
 This runs `mocha dmoney.spec.js` with a 20-second timeout per test, executing the full integration flow against the Dmoney API.
+
+## Test Case Link:
+
+```
+https://docs.google.com/spreadsheets/d/1PCFCII1zPRZZIwPxDujG-KSDk8sYw1EKA6n4ko3n3PA/edit?gid=0#gid=0
+```
+
+## Report
+
+<img width="1508" height="1003" alt="Screenshot from 2026-08-15 14-44-58" src="https://github.com/user-attachments/assets/d4182e0b-6486-4430-9a9e-ac5962ab186f" />
