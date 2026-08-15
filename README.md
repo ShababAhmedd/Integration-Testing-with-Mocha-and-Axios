@@ -2,17 +2,20 @@
 
 Integration test suite for the **Dmoney** API, built with Mocha, Chai, and Axios. It replays a full end-to-end financial-services flow — admin login, user/agent/merchant creation and activation, OTP verification, deposits, send money, cash-out, and payments — directly against a running Dmoney backend, based on a Postman collection ([collection/findme.json](collection/findme.json)).
 
+The API base URL is configurable via environment variables (see [dmoney.spec.js](dmoney.spec.js)).
+
 ## Technologies Used
 
 - [Node.js](https://nodejs.org/)
 - [Mocha](https://mochajs.org/) — test runner
 - [Chai](https://www.chaijs.com/) — assertion library
 - [Axios](https://axios-http.com/) — HTTP client for API calls
+- [dotenv](https://www.npmjs.com/package/dotenv) — loads environment variables from `.env`
 
 ## Prerequisites
 
 - Node.js and npm installed
-- A running instance of the Dmoney API on `http://localhost:5000` (the base URL used by the tests in [dmoney.spec.js](dmoney.spec.js))
+- A running instance of the Dmoney API (URL configured via the `BASE_URL` environment variable)
 
 ## Clone the Repository
 
@@ -26,6 +29,16 @@ cd Integration-Testing-with-Mocha-and-Axios
 ```bash
 npm install
 ```
+
+## Configure Environment Variables
+
+Copy the example env file and adjust it as needed:
+
+```bash
+cp .env.example .env
+```
+
+By default, `BASE_URL` points to `http://localhost:5000`.
 
 ## Run the Tests
 

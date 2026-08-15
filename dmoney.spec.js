@@ -1,7 +1,8 @@
+import "dotenv/config";
 import axios from "axios";
 import { expect } from "chai";
 
-const baseURL = "http://localhost:5000";
+const baseURL = process.env.BASE_URL;
 const partnerKey = "ROADTOSDET";
 const password = "1234";
 const OTP = "0000";
