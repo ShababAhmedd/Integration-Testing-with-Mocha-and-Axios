@@ -3,9 +3,13 @@ import axios from "axios";
 import { expect } from "chai";
 
 const baseURL = process.env.BASE_URL;
-const partnerKey = "ROADTOSDET";
-const password = "1234";
-const OTP = "0000";
+const partnerKey = process.env.PARTNER_KEY;
+const password = process.env.PASSWORD;
+const OTP = process.env.OTP;
+const testEmailPrefix = process.env.TEST_EMAIL_PREFIX;
+const adminEmail = process.env.ADMIN_EMAIL;
+const adminPhoneNumber = process.env.ADMIN_PHONE;
+const systemEmail = process.env.SYSTEM_EMAIL;
 
 const api = axios.create({
   baseURL,
@@ -17,7 +21,7 @@ function randomInt(min, max) {
 }
 
 function randomEmail() {
-  return `shabab.ahmed2000sa+${randomInt(1000, 9999)}@gmail.com`;
+  return `${testEmailPrefix}+${randomInt(1000, 9999)}@gmail.com`;
 }
 
 function randomPhoneNumber() {
@@ -95,7 +99,7 @@ describe("Dmoney Integration Flow", function () {
 
   describe("Admin Login", () => {
     it("logs in with email", async () => {
-      const res = await login("admin@dmoney.com");
+      const res = await login(adminEmail);
 
       expect(res.status).to.equal(200);
       expect(res.data.message).to.equal("Login successful");
@@ -105,7 +109,7 @@ describe("Dmoney Integration Flow", function () {
     });
 
     it("logs in with phone number", async () => {
-      const res = await login("01686606909");
+      const res = await login(adminPhoneNumber);
 
       expect(res.status).to.equal(200);
       expect(res.data.message).to.equal("Login successful");
@@ -384,7 +388,7 @@ describe("Dmoney Integration Flow", function () {
 
   describe("SYSTEM Deposits", () => {
     it("logs the SYSTEM account in", async () => {
-      const res = await login("system@dmoney.com");
+      const res = await login(systemEmail);
 
       expect(res.status).to.equal(200);
       expect(res.data.message).to.equal("Login successful");

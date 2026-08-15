@@ -2,7 +2,7 @@
 
 Integration test suite for the **Dmoney** API, built with Mocha, Chai, and Axios. It replays a full end-to-end financial-services flow — admin login, user/agent/merchant creation and activation, OTP verification, deposits, send money, cash-out, and payments — directly against a running Dmoney backend, based on a Postman collection ([collection/findme.json](collection/findme.json)).
 
-The API base URL is configurable via environment variables (see [dmoney.spec.js](dmoney.spec.js)).
+The API base URL and test credentials are configurable via environment variables (see [dmoney.spec.js](dmoney.spec.js)).
 
 ## Technologies Used
 
@@ -38,7 +38,18 @@ Copy the example env file and adjust it as needed:
 cp .env.example .env
 ```
 
-By default, `BASE_URL` points to `http://localhost:5000`.
+`.env` is gitignored, so it's safe to fill in with real/local values. It defines:
+
+| Variable            | Description                                            | Example                    |
+| -------------------- | ------------------------------------------------------- | --------------------------- |
+| `BASE_URL`           | Base URL of the Dmoney API                              | `http://localhost:5000`     |
+| `PARTNER_KEY`        | Partner secret sent as the `X-AUTH-SECRET-KEY` header   | `ROADTOSDET`                |
+| `PASSWORD`           | Default password used when creating/logging in test users | `1234`                     |
+| `OTP`                | OTP value accepted via the dev bypass (`?env=dev`)       | `0000`                      |
+| `TEST_EMAIL_PREFIX`  | Gmail username used as the local part of generated test emails | `your-gmail-username` |
+| `ADMIN_EMAIL`        | Email of an existing Admin account                       | `admin@dmoney.com`          |
+| `ADMIN_PHONE`        | Phone number of an existing Admin account                | `01686606909`               |
+| `SYSTEM_EMAIL`       | Email of the SYSTEM account used to seed Agent deposits   | `system@dmoney.com`        |
 
 ## Run the Tests
 
